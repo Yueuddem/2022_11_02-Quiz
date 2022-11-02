@@ -1,12 +1,14 @@
 const arr = [1, 2, 3, 4, 5];
 
-const arr_sqared= arr.map(number => number*number)
-console.log(arr_sqared)
-const arr_root= arr.map(Math.sqrt)
-console.log(arr_root)
-const arr_cubed= arr.map(number => number*number*number)
-console.log(arr_cubed)
+const f1 = v => v ** 2;
+const f2 = v => Math.sqrt(v);
+const f3 = v => v ** 3;
 
-            // [1, 4, 9, 16, 25]
-            // [1, 2, 3, 4, 5]
-// ⇒⇒⇒ 결과 => [ 1, 8, 27, 64, 125 ]
+const runRobot = (fns, data) => fns.reduce((pre, f) => pre.map(f), data);
+
+// const result = arr.map(f3);
+// const result = [f1, f2, f3].reduce((pre, f) => pre.map(f), arr);
+// const result = [f1, f3].reduce((pre, f) => pre.map(f), arr);
+const result = runRobot([f1, f2, f3], arr);
+
+console.log(result);
